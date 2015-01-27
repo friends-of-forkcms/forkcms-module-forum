@@ -1,0 +1,11 @@
+{
+    "name": "diewy/forkcms-module-forum",
+    "type": "forkcms-module",
+    "description": "Fork CMS Forum module",
+    "keywords": ["forkcms","forum"],
+    "homepage": "http://www.fork-cms.com/",
+    "license": "MIT",
+    "require": {
+        "dflydev/markdown": "1.0.*"
+    }
+}

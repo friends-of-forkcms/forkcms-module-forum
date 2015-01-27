@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<locale>
+  <backend>
+    <core>
+      <item type="label" name="Forum">
+        <translation language="en"><![CDATA[forum]]></translation>
+      </item>
+    </core>
+    <forum>
+      <item type="label" name="Extra">
+        <translation language="en"><![CDATA[extra]]></translation>
+      </item>
+      <item type="label" name="ProfileId">
+        <translation language="en"><![CDATA[profile id]]></translation>
+      </item>
+      <item type="label" name="Deleted">
+        <translation language="en"><![CDATA[deleted]]></translation>
+      </item>
+      <item type="label" name="EditPost">
+        <translation language="en"><![CDATA[edit post]]></translation>
+      </item>
+      <item type="label" name="EditTopic">
+        <translation language="en"><![CDATA[edit post]]></translation>
+      </item>
+      <item type="label" name="Url">
+        <translation language="en"><![CDATA[url]]></translation>
+      </item>
+      <item type="message" name="NoPostsOrTopics">
+        <translation language="en"><![CDATA[No posts or topics yet.]]></translation>
+      </item>
+      <item type="message" name="NoSpam">
+        <translation language="en"><![CDATA[Hooray! No spam!]]></translation>
+      </item>
+    </forum>
+  </backend>
+  <frontend>
+    <core>
+      <item type="label" name="Forum">
+        <translation language="en"><![CDATA[forum]]></translation>
+      </item>
+      <item type="label" name="GoToForum">
+        <translation language="en"><![CDATA[go to forum]]></translation>
+      </item>
+      <item type="label" name="Replies">
+        <translation language="en"><![CDATA[replies]]></translation>
+      </item>
+      <item type="label" name="LastPost">
+        <translation language="en"><![CDATA[last post]]></translation>
+      </item>
+      <item type="label" name="NewTopic">
+        <translation language="en"><![CDATA[new topic]]></translation>
+      </item>
+      <item type="label" name="Topics">
+        <translation language="en"><![CDATA[topics]]></translation>
+      </item>
+      <item type="label" name="Edit">
+        <translation language="en"><![CDATA[edit]]></translation>
+      </item>
+      <item type="label" name="EditTopic">
+        <translation language="en"><![CDATA[edit topic]]></translation>
+      </item>
+      <item type="label" name="EditPost">
+        <translation language="en"><![CDATA[edit post]]></translation>
+      </item>
+      <item type="label" name="GoToTopic">
+        <translation language="en"><![CDATA[go to topic]]></translation>
+      </item>
+      <item type="label" name="ChangeEmailSettings">
+        <translation language="en"><![CDATA[change email settings]]></translation>
+      </item>
+      <item type="message" name="LoginToReply">
+        <translation language="en"><![CDATA[<a href="%1$s">Login</a> or <a href="%2$s">register an account</a> to reply]]></translation>
+      </item>
+      <item type="message" name="MarkdownHelp">
+        <translation language="en"><![CDATA[<strong>Tip: Use Markdown to style your text.</strong> Learn Markdown basics with <a href="http://daringfireball.net/projects/markdown/basics">this article</a>.]]></translation>
+      </item>
+      <item type="message" name="ForumReplyMailIntroductionRepliers">
+        <translation language="en"><![CDATA[There was a new reply on the topic "%1$s"]]></translation>
+      </item>
+      <item type="message" name="ForumReplyMailIntroductionTopicStarter">
+        <translation language="en"><![CDATA[There was a new reply on your topic "%1$s"]]></translation>
+      </item>
+      <item type="message" name="ForumReplyMailSubjectRepliers">
+        <translation language="en"><![CDATA[New reply on the topic "%1$s"]]></translation>
+      </item>
+      <item type="message" name="ForumReplyMailSubjectTopicStarter">
+        <translation language="en"><![CDATA[New reply on your topic "%1$s"]]></translation>
+      </item>
+      <item type="error" name="TitleIsRequired">
+        <translation language="en"><![CDATA[Title is a required field.]]></translation>
+      </item>
+      <item type="action" name="AddTopic">
+        <translation language="en"><![CDATA[add-topic]]></translation>
+      </item>
+      <item type="action" name="EditTopic">
+        <translation language="en"><![CDATA[edit-topic]]></translation>
+      </item>
+      <item type="action" name="EditPost">
+        <translation language="en"><![CDATA[edit-post]]></translation>
+      </item>
+      <item type="action" name="DeletePost">
+        <translation language="en"><![CDATA[delete-post]]></translation>
+      </item>
+      <item type="action" name="DeleteTopic">
+        <translation language="en"><![CDATA[delete-topic]]></translation>
+      </item>
+    </core>
+  </frontend>
+</locale>
