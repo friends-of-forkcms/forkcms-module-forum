@@ -1,6 +1,6 @@
 # Fork CMS Module: Forum
 
-Depends on the profiles module and [markdown package by dflydev](https://github.com/dflydev/dflydev-markdown).
+Depends on the profiles module and [php-markdown package by michelf](https://github.com/michelf/php-markdown).
 
 ## Importent note
 
