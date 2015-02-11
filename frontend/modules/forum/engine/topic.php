@@ -120,8 +120,8 @@ class FrontendForumTopic
 					t.`title`, t.`text`, t.`status`, UNIX_TIMESTAMP(t.`created_on`) AS created_on,
 					UNIX_TIMESTAMP(t.`edited_on`) AS edited_on, t.`num_posts`
 			 FROM `forum_topics` t
-			 WHERE `id` = ?',
-			(int) $id
+			 WHERE `id` = ? AND t.status = ?',
+			array((int) $id, 'active')
 		);
 
 		// set properties
@@ -164,8 +164,8 @@ class FrontendForumTopic
 					t.`title`, t.`text`, t.`status`, UNIX_TIMESTAMP(t.`created_on`) AS created_on, 
 					UNIX_TIMESTAMP(t.`edited_on`) AS edited_on, t.`num_posts` 
 			 FROM `forum_topics` t
-			 WHERE t.`url` = ?',
-			(string) $url
+			 WHERE t.`url` = ? AND t.status = ?',
+			array((string) $url, 'active')
 		);
 
 		// set properties

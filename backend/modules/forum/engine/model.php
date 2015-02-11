@@ -215,11 +215,11 @@ class BackendForumModel
 			 WHERE i.id = ? AND i.status = ?
 			 ORDER BY i.edited_on DESC
 			 LIMIT ?',
-			array($item['id'], $archiveType, 20)
+			array($item['id'], 'archived', 20)
 		);
 
 		// delete other revisions
-		if(!empty($revisionIdsToKeep)) BackendModel::getContainer()->get('database')->delete('forum_topics', 'id = ? AND status = ? AND revision_id NOT IN (' . implode(', ', $revisionIdsToKeep) . ')', array($item['id'], $archiveType));
+		if(!empty($revisionIdsToKeep)) BackendModel::getContainer()->get('database')->delete('forum_topics', 'id = ? AND status = ? AND revision_id NOT IN (' . implode(', ', $revisionIdsToKeep) . ')', array($item['id'], 'archived'));
 
 		// insert new version
 		$item['revision_id'] = BackendModel::getContainer()->get('database')->insert('forum_topics', $item);
