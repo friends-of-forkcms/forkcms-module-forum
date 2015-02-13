@@ -7,6 +7,8 @@
  * file that was distributed with this source code.
  */
 
+use \Michelf\Markdown;
+
 /**
  * In this file we store all generic functions that we will be using in the faq module
  *
@@ -110,5 +112,33 @@ class FrontendForumModel
 	{
 		// insert and return the new revision id
 		return FrontendModel::getContainer()->get('database')->insert('forum_topics', $item);
+	}
+
+	/**
+	 * Transform markdown to html and sanitize/purify the html to avoid XSS
+	 *
+	 * @param string $text The markdown text
+	 * @return string Html code
+	 */
+	public static function markdownToHtml($text) {
+		$content = Markdown::defaultTransform($text);
+
+		// Purify the html to avoid XSS
+		$config = HTMLPurifier_Config::createDefault();
+		$config->set('Core.Encoding', 'UTF-8');
+		$config->set('HTML.Doctype', 'XHTML 1.0 Transitional');
+		$config->set('Cache.DefinitionImpl', null);
+		$config->set('Core.EscapeInvalidTags', true);
+
+		// Set allowed html tags (based on stackoverflow whitelist)
+		$config->set(
+			'HTML.Allowed',
+			'a[href|title],b,strong,blockquote[cite],code,del,dd,dl,dt,em,h1,h2,h3,h4,h5,h6,i,li,ol,p,pre,s,sup,sub,strong,strike,ul,br,hr,
+				img[src|alt|title]'
+		);
+
+		$purifier = new HTMLPurifier($config);
+
+		return $purifier->purify($content);
 	}
 }
