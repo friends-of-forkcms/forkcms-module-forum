@@ -23,8 +23,8 @@ class BackendForumModel
 		 )
 		 UNION
 		 (	SELECT \'post\' AS `type`, fp.`id`, LEFT(TRIM(fp.`text`), 70) AS `text`,
-		 			fp.`created_on`, fp.`profile_id`, p.`display_name` AS `profile`
-		 	FROM `forum_posts` fp
+					fp.`created_on`, fp.`profile_id`, p.`display_name` AS `profile`
+			FROM `forum_posts` fp
 			LEFT JOIN `profiles` p ON (p.`id` = fp.`profile_id`)
 			LEFT JOIN `forum_topics` t ON (t.`id` = fp.`topic_id`)
 			WHERE fp.`type`<>? AND fp.`status` = ?
@@ -39,8 +39,8 @@ class BackendForumModel
 		 )
 		 UNION
 		 (	SELECT \'post\' AS `type`, fp.`id`, LEFT(TRIM(fp.`text`), 150) AS `text`,
-		 			fp.`created_on`, fp.`profile_id`, p.`display_name` AS `profile`
-		 	FROM `forum_posts` fp
+					fp.`created_on`, fp.`profile_id`, p.`display_name` AS `profile`
+			FROM `forum_posts` fp
 			LEFT JOIN `profiles` p ON (p.`id` = fp.`profile_id`)
 			LEFT JOIN `forum_topics` t ON (t.`id` = fp.`topic_id`)
 			WHERE fp.`type`=? AND fp.`status` = ?
@@ -153,30 +153,30 @@ class BackendForumModel
 		return $item['revision_id'];
 	}
 
-    /**
-     * Update the types of a topic or post
-     *
-     * @param int $ids The topic and posts id's
-     * @param int $type The type (post/topic)
-     */
-    public static function updateTypes($ids, $type)
-    {
-        // make sure $ids is an array
-        $ids = (array) $ids;
+	/**
+	 * Update the types of a topic or post
+	 *
+	 * @param int $ids The topic and posts id's
+	 * @param int $type The type (post/topic)
+	 */
+	public static function updateTypes($ids, $type)
+	{
+		// make sure $ids is an array
+		$ids = (array) $ids;
 
-        // Split the id's and put them in their appropriate array (post/topic)
-        $idsTopic = array();
-        $idsPost = array();
-        foreach($ids as &$id) {
-            $splitId = explode('-', $id);
-            if($splitId[0] == 'topic') $idsTopic[] = (int) $splitId[1];
-            else if($splitId[0] == 'post') $idsPost[] = (int) $splitId[1];
-        }
+		// Split the id's and put them in their appropriate array (post/topic)
+		$idsTopic = array();
+		$idsPost = array();
+		foreach($ids as &$id) {
+			$splitId = explode('-', $id);
+			if($splitId[0] == 'topic') $idsTopic[] = (int) $splitId[1];
+			else if($splitId[0] == 'post') $idsPost[] = (int) $splitId[1];
+		}
 
-        // Update post & topic types
-        if(!empty($idsPost)) self::updatePostTypes($idsPost, $type);
-        if(!empty($idsTopic)) self::updateTopicTypes($idsTopic, $type);
-    }
+		// Update post & topic types
+		if(!empty($idsPost)) self::updatePostTypes($idsPost, $type);
+		if(!empty($idsTopic)) self::updateTopicTypes($idsTopic, $type);
+	}
 
 
 	/**
@@ -272,34 +272,34 @@ class BackendForumModel
 		BackendModel::getContainer()->get('database')->update('forum_topics', array('type' => $type), 'id IN (' . implode(',', $ids) . ')');
 	}
 
-    /**
-     * Delete an array of topics and posts
-     *
-     * @param $typeIds
-     */
-    public static function delete($typeIds)
-    {
-        // make sure $ids is an array
-        $ids = (array) $typeIds;
+	/**
+	 * Delete an array of topics and posts
+	 *
+	 * @param $typeIds
+	 */
+	public static function delete($typeIds)
+	{
+		// make sure $ids is an array
+		$ids = (array) $typeIds;
 
-        // loop and cast to integers
-        $idsTopic = array();
-        $idsPost = array();
-        foreach($ids as &$id) {
-            $splitId = explode('-', $id);
-            $id = (int) $splitId[1];
-            if($splitId[0] == 'topic') $idsTopic[] = (int) $id;
-            else if($splitId[0] == 'post') $idsPost[] = (int) $id;
-        }
+		// loop and cast to integers
+		$idsTopic = array();
+		$idsPost = array();
+		foreach($ids as &$id) {
+			$splitId = explode('-', $id);
+			$id = (int) $splitId[1];
+			if($splitId[0] == 'topic') $idsTopic[] = (int) $id;
+			else if($splitId[0] == 'post') $idsPost[] = (int) $id;
+		}
 
-        // execute
-        if(!empty($idsTopic)) {
-            BackendModel::getContainer()->get('database')->delete('forum_topics', 'id IN (' . implode(',', $idsTopic) . ')');
-        }
-        if(!empty($idsPost)) {
-            BackendModel::getContainer()->get('database')->delete('forum_posts', 'id IN (' . implode(',', $idsPost) . ')');
-        }
-    }
+		// execute
+		if(!empty($idsTopic)) {
+			BackendModel::getContainer()->get('database')->delete('forum_topics', 'id IN (' . implode(',', $idsTopic) . ')');
+		}
+		if(!empty($idsPost)) {
+			BackendModel::getContainer()->get('database')->delete('forum_posts', 'id IN (' . implode(',', $idsPost) . ')');
+		}
+	}
 
 	/**
 	 * Overwrite last post data of a topic with current data so it's back up-to-date
@@ -341,7 +341,7 @@ class BackendForumModel
 		// get db
 		$db = BackendModel::getContainer()->get('database');
 
-        if(empty($ids)) return false;
+		if(empty($ids)) return false;
 
 		// get counts
 		$commentCounts = (array) $db->getPairs(

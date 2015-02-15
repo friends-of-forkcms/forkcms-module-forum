@@ -64,10 +64,10 @@ class FrontendForumDetail extends FrontendBaseBlock
 		// anything found?
 		if($this->topic->getTitle() == null) $this->redirect(FrontendNavigation::getURL(404));
 
-        // tagged as a spam topic? Hide it for google
-        if($this->topic->getType() == 'spam') {
-            $this->header->addMetaData(array('name' => 'robots', 'content' => 'noindex, follow'), true);
-        }
+		// tagged as a spam topic? Hide it for google
+		if($this->topic->getType() == 'spam') {
+		$this->header->addMetaData(array('name' => 'robots', 'content' => 'noindex, follow'), true);
+		}
 	}
 
 	/**
