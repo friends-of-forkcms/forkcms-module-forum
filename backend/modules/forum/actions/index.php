@@ -42,7 +42,7 @@ class BackendForumIndex extends BackendBaseActionIndex
 		$this->dgPublished->setRowAttributes(array('id' => '[id]'));
 
 		// add the multicheckbox column
-		$this->dgPublished->setMassActionCheckboxes('checkbox', '[id]');
+		$this->dgPublished->setMassActionCheckboxes('checkbox', '[type]-[id]');
 
 		// html entities
 		$this->dgPublished->setColumnFunction('htmlentities', '[text]', 'text', true);
@@ -69,7 +69,7 @@ class BackendForumIndex extends BackendBaseActionIndex
 
 		// add extra column for button
 		$this->dgPublished->addColumn('edit', null, BL::lbl('Edit'), BackendModel::createURLForAction('edit_[type]') . '&amp;id=[id]', BL::lbl('Edit'));
-		$this->dgPublished->addColumn('mark_as_spam', null, BL::lbl('MarkAsSpam'), BackendModel::createURLForAction('mass_action') . '&amp;id=[id]&amp;from=published&amp;action=spam', BL::lbl('MarkAsSpam'));
+		$this->dgPublished->addColumn('mark_as_spam', null, BL::lbl('MarkAsSpam'), BackendModel::createURLForAction('mass_action') . '&amp;id=[type]-[id]&amp;from=published&amp;action=spam', BL::lbl('MarkAsSpam'));
 	}
 
 	/**
@@ -81,7 +81,7 @@ class BackendForumIndex extends BackendBaseActionIndex
 		$this->dgSpam->setRowAttributes(array('id' => '[id]'));
 
 		// add the multicheckbox column
-		$this->dgSpam->setMassActionCheckboxes('checkbox', '[id]');
+		$this->dgSpam->setMassActionCheckboxes('checkbox', '[type]-[id]');
 
 		// html entities
 		$this->dgSpam->setColumnFunction('htmlentities', '[text]', 'text', true);
@@ -103,7 +103,7 @@ class BackendForumIndex extends BackendBaseActionIndex
 		$this->dgSpam->setMassAction($ddmMassAction);
 
 		// add extra column for button
-		$this->dgSpam->addColumn('approve', null, BL::lbl('Approve'), BackendModel::createURLForAction('mass_action') . '&amp;id=[id]&amp;from=spam&amp;action=visible', BL::lbl('Approve'));
+		$this->dgSpam->addColumn('approve', null, BL::lbl('Approve'), BackendModel::createURLForAction('mass_action') . '&amp;id=[type]-[id]&amp;from=spam&amp;action=visible', BL::lbl('Approve'));
 	}
 
 	/**

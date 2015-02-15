@@ -39,7 +39,7 @@ class BackendForumMassAction extends BackendBaseAction
 		if($action == 'delete') BackendForumModel::delete($ids);
 
 		// change statuses
-		else BackendForumModel::updatePostTypes($ids, $action);
+		else BackendForumModel::updateTypes($ids, $action);
 
 		// define report
 		$report = (count($ids) > 1) ? 'items-' : 'item-';
